@@ -1,5 +1,6 @@
 require 'bundler/setup'
 require 'trello'
+require 'date'
 
 trello_api_key, trello_app_token, trello_board_id, date_from, date_to = ARGV
 
