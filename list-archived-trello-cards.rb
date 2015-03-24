@@ -1,8 +1,13 @@
 require 'bundler/setup'
 require 'trello'
 require 'date'
+require 'dotenv'
 
-trello_api_key, trello_app_token, trello_board_id, date_from, date_to = ARGV
+Dotenv.load
+
+trello_api_key, trello_app_token = ENV.fetch('TRELLO_KEY'), ENV.fetch('TRELLO_TOKEN')
+
+trello_board_id, date_from, date_to = ARGV
 
 date_from = Date.parse(date_from) rescue nil
 date_to = Date.parse(date_to) rescue nil

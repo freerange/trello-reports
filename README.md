@@ -18,6 +18,11 @@ We use it to get an overview of the cards that we completed in the last week.
         $ open "https://trello.com/1/authorize?key=$TRELLO_KEY&name=gfr-trello-archived-cards&expiration=never&response_type=token&scope=read"
         $ export TRELLO_TOKEN=<your-trello-token>
 
+To avoid having to set these every time, you can store these environment variables in a `.env` file:
+
+    TRELLO_KEY=XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+    TRELLO_TOKEN=XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+
 ### Usage
 
 1. Get the ID of the board you're interested in
@@ -28,4 +33,4 @@ We use it to get an overview of the cards that we completed in the last week.
 
 2. Execute:
 
-        $ ruby list-archived-trello-cards.rb $TRELLO_KEY $TRELLO_TOKEN <trello-board-id> <date-from> <date-to>
+        $ ruby list-archived-trello-cards.rb <trello-board-id> <date-from> <date-to>
