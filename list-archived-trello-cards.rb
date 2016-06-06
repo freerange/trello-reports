@@ -31,5 +31,5 @@ end.reverse.reject do |card|
   card.last_activity_date < date_from or
   card.last_activity_date > date_to
 end.each do |card|
-  puts "#{card.last_activity_date} - #{card.name}"
+  puts "* #{card.last_activity_date} - [#{card.name}](#{card.short_url})"
 end
