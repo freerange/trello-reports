@@ -31,6 +31,10 @@ To avoid having to set these every time, you can store these environment variabl
         # Navigate to the board you want to backup and copy the board ID from the URL
         # The structure of the URL should be trello.com/b/<board-ID>/<board-name>
 
-2. Execute:
+2. Listing archived cards:
 
         $ ruby list-archived-trello-cards.rb <trello-board-id> <date-from> <date-to>
+
+3. Listing all cards with activity within the date range:
+
+        $ ruby list-trello-cards-with-activity.rb <trello-board-id> <date-from> <date-to>
