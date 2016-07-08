@@ -1,8 +1,8 @@
-## Trello archived cards
+## Trello Reports
 
-Ruby script that displays Trello cards archived within a given date range.
+Ruby scripts for generating reports for a Trello board.
 
-We use it to get an overview of the cards that we completed in the last week.
+We created these scripts to help us work out which cards we've finished or worked on in a given week to help us write the week notes.
 
 ### Prerequisites
 
