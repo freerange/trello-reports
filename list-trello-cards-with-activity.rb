@@ -47,7 +47,7 @@ end
 # long time. Presumably because it's making a request to the Trello API for each
 # card. Collecting the card ID from the `data` hash and then using that to find
 # the cards is much quicker.
-card_ids = board_actions.map { |action| action.data['card']['id'] }.uniq
+card_ids = board_actions.reject { |a| a.data['card'].nil? }.map { |a| a.data['card']['id'] }.uniq
 
 cards = card_ids.map do |card_id|
   Trello::Card.find(card_id)
