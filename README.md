@@ -33,6 +33,8 @@ To avoid having to set these every time, you can store these environment variabl
 
 2. Listing archived cards:
 
+This will list all archived cards that have had some activity between <date-from> and <date-to>.
+
         $ ruby list-archived-trello-cards.rb <trello-board-id> <date-from> <date-to>
 
 3. Listing all cards with activity within the date range:
