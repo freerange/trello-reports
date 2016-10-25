@@ -30,6 +30,8 @@ archived_cards.sort_by do |card|
 end.reverse.reject do |card|
   card.last_activity_date < date_from or
   card.last_activity_date > date_to
+end.select do |card|
+  card.actions(since: date_from.to_s, before: date_to.to_s).any?
 end.each do |card|
   puts "* #{card.last_activity_date} - [#{card.name}](#{card.short_url})"
 end
