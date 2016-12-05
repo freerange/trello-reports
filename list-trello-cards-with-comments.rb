@@ -13,7 +13,7 @@ date_from = Date.parse(date_from) rescue nil
 date_to = Date.parse(date_to) rescue nil
 
 unless trello_api_key && trello_app_token && trello_board_id && date_from && date_to
-  puts "Usage: #{__FILE__} <trello-developer-token> <trello-application-token> <trello-board-id> <date-from> <date-to>"
+  puts "Usage: TRELLO_KEY=<trello-api-key> TRELLO_TOKEN=<trello-token> #{__FILE__} <trello-board-id> <date-from> <date-to>"
   exit 1
 end
 
