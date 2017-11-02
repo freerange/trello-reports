@@ -40,3 +40,7 @@ This will list all archived cards that have had some activity between <date-from
 3. Listing all cards with activity within the date range:
 
         $ ruby list-trello-cards-with-activity.rb <trello-board-id> <date-from> <date-to>
+
+4. Listing neglected cards (last activity earlier than N weeks):
+
+        $ ruby list-neglected-trello-cards.rb <trello-board-id> <number-of-weeks-until-considered-neglected>
