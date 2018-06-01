@@ -24,10 +24,25 @@ date_before_which_considered_neglected = Date.today - (number_of_weeks_until_con
 board = Trello::Board.find(trello_board_id)
 open_cards = board.cards(filter: :open)
 
-open_cards.sort_by do |card|
-  card.last_activity_date
-end.reverse.select do |card|
-  card.last_activity_date < date_before_which_considered_neglected
+class Trello::Card
+  def latest_comment
+    comments.sort_by { |comment| comment.date }.last
+  end
+  def date_of_latest_comment
+    latest_comment && latest_comment.date
+  end
+  def date_of_most_recent_interesting_activity
+    [created_at, date_of_latest_comment].compact.max
+  end
+  def neglected_since?(date)
+    date_of_most_recent_interesting_activity < date
+  end
+end
+
+open_cards.select do |card|
+  card.neglected_since?(date_before_which_considered_neglected)
+end.sort_by do |card|
+  card.date_of_most_recent_interesting_activity
 end.each do |card|
-  puts "* #{card.last_activity_date} - [#{card.name}](#{card.short_url})"
+  puts "* #{card.date_of_most_recent_interesting_activity} - [#{card.name}](#{card.short_url})"
 end
